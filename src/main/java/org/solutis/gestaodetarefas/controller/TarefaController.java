@@ -24,7 +24,7 @@ import java.util.Map;
 
 @Validated
 @RestController
-@ControllerAdvice
+//@ControllerAdvice
 @RequestMapping("/api/tarefas")
 @Tag(name = "TarefaController", description = "RESTful API para Gestão de Tarefas")
 public class TarefaController {
@@ -48,7 +48,7 @@ public class TarefaController {
 
     @Operation(summary = "Lista todas as tarefas", description = "Lista todas as tarefas armazenadas no banco de memória")
     @GetMapping
-    public List<TarefaDto> listarTarefas() {
+    public ResponseEntity<?> listarTarefas() {
         return tarefaService.listarTarefas();
     }
 

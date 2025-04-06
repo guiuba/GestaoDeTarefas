@@ -31,9 +31,10 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(TarefaNaoEncontradaException.class)
     public ResponseEntity<ErroDTO> handleTarefaNaoEncontrada(TarefaNaoEncontradaException ex, HttpServletRequest request) {
+        System.out.println(">>> Entrou no handler de TarefaNaoEncontradaException");
         ErroDTO erro = new ErroDTO(
-                HttpStatus.BAD_REQUEST.value(),
-                "Bad Request",
+                HttpStatus.NOT_FOUND.value(),
+                "Not Found",
                 ex.getMessage(),
                 request.getRequestURI()
         );
