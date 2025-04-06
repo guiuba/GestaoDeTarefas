@@ -2,6 +2,7 @@ package org.solutis.gestaodetarefas.controller;
 
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.solutis.gestaodetarefas.customExceptions.TarefaJaExistenteException;
 import org.solutis.gestaodetarefas.customExceptions.TarefaNaoEncontradaException;
@@ -21,6 +22,7 @@ import java.util.Map;
 @RestController
 @ControllerAdvice
 @RequestMapping("/api/tarefas")
+@Tag(name = "TarefaController", description = "RESTful API para Gestão de Tarefas")
 public class TarefaController {
     private TarefaService tarefaService;
 
@@ -33,32 +35,32 @@ public class TarefaController {
             TarefaJaExistenteException.class,
             TarefaNaoEncontradaException.class})
 
-    @Operation(summary = "Cria uma tarefa")
+    @Operation(summary = "Cria uma nova tarefa", description = "Cria uma nova tarefa com os campos título, descrição e status")
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<TarefaDto> criarTarefa(@Valid @RequestBody Tarefa tarefa) {
           return tarefaService.criarTarefa(tarefa);
     }
 
-    @Operation(summary = "Lista todas as tarefas")
+    @Operation(summary = "Lista todas as tarefas", description = "Lista todas as tarefas armazenadas no banco de memória")
     @GetMapping
     public List<TarefaDto> listarTarefas() {
         return tarefaService.listarTarefas();
     }
 
-    @Operation(summary = "Busca uma tarefa pelo id")
+    @Operation(summary = "Busca uma tarefa pelo id", description = "Busca uma tarefa, através do id informado")
     @GetMapping("/{id}")
     public ResponseEntity<TarefaDto>  buscarTarefa(@PathVariable Long id) {
         return tarefaService.buscarTarefa(id);
     }
 
-    @Operation(summary = "Atualiza o status de uma tarefa pelo id")
+    @Operation(summary = "Atualiza o status de uma tarefa pelo id", description = "Atualiza o status de uma tarefa pelo id, através do id informado")
     @PutMapping("/{id}")
     public ResponseEntity<TarefaDto> atualizarStatus(@PathVariable Long id, @RequestBody Tarefa novaTarefa) {
 
         return tarefaService.atualizarStatus(id, novaTarefa);
     }
-    @Operation(summary = "Deleta uma tarefa pelo id")
+    @Operation(summary = "Deleta uma tarefa pelo id", description = "Deleta uma tarefa pelo id, através do id informado")
     @DeleteMapping("/{id}")
     public ResponseEntity<String> excluirTarefa(@PathVariable Long id) {
         return tarefaService.excluirTarefa(id);
