@@ -6,11 +6,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Component
-@ResponseStatus(code = HttpStatus.BAD_REQUEST, reason = "Tarefa já existente!")
+//@ResponseStatus(code = HttpStatus.BAD_REQUEST, reason = "Tarefa já existente!")
 //@Data
 public class TarefaJaExistenteException extends RuntimeException{
 
     public TarefaJaExistenteException() {
-        super();
+        super("Tarefa já existente!");
     }
 }

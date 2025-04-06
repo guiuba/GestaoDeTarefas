@@ -2,10 +2,14 @@ package org.solutis.gestaodetarefas.controller;
 
 
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.solutis.gestaodetarefas.customExceptions.TarefaJaExistenteException;
 import org.solutis.gestaodetarefas.customExceptions.TarefaNaoEncontradaException;
+import org.solutis.gestaodetarefas.dto.ErroDTO;
 import org.solutis.gestaodetarefas.dto.TarefaDto;
 import org.solutis.gestaodetarefas.model.Tarefa;
 import org.solutis.gestaodetarefas.service.TarefaService;
@@ -48,7 +52,11 @@ public class TarefaController {
         return tarefaService.listarTarefas();
     }
 
-    @Operation(summary = "Busca uma tarefa pelo id", description = "Busca uma tarefa, através do id informado")
+    @Operation(summary = "Busca uma tarefa pelo id", description = "Busca uma tarefa, através do id informado", responses = {
+            @ApiResponse(responseCode = "200", description = "Tarefa encontrada"),
+            @ApiResponse(responseCode = "400", description = "Tarefa não encontrada",
+                    content = @Content(schema = @Schema(implementation = ErroDTO.class)))
+    })
     @GetMapping("/{id}")
     public ResponseEntity<TarefaDto>  buscarTarefa(@PathVariable Long id) {
         return tarefaService.buscarTarefa(id);
@@ -60,7 +68,12 @@ public class TarefaController {
 
         return tarefaService.atualizarStatus(id, novaTarefa);
     }
-    @Operation(summary = "Deleta uma tarefa pelo id", description = "Deleta uma tarefa pelo id, através do id informado")
+    @Operation(summary = "Deleta uma tarefa pelo id", description = "Deleta uma tarefa pelo id, através do id informado",
+            responses = {
+            @ApiResponse(responseCode = "200", description = "Tarefa encontrada"),
+            @ApiResponse(responseCode = "400", description = "Tarefa não encontrada",
+                    content = @Content(schema = @Schema(implementation = ErroDTO.class)))
+    })
     @DeleteMapping("/{id}")
     public ResponseEntity<String> excluirTarefa(@PathVariable Long id) {
         return tarefaService.excluirTarefa(id);

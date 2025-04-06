@@ -1,6 +1,7 @@
 package org.solutis.gestaodetarefas.exception;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.solutis.gestaodetarefas.customExceptions.TarefaJaExistenteException;
 import org.solutis.gestaodetarefas.customExceptions.TarefaNaoEncontradaException;
 import org.solutis.gestaodetarefas.dto.ErroDTO;
 import org.springframework.http.HttpStatus;
@@ -28,8 +29,8 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(TarefaNaoEncontradaException.class) // substitua pelo tipo de exceção que você estiver usando
-    public ResponseEntity<ErroDTO> handleTarefaNotFound(TarefaNaoEncontradaException ex, HttpServletRequest request) {
+    @ExceptionHandler({TarefaNaoEncontradaException.class, TarefaJaExistenteException.class})
+    public ResponseEntity<ErroDTO> handleTarefaNaoEncontrada(TarefaNaoEncontradaException ex, HttpServletRequest request) {
         ErroDTO erro = new ErroDTO(
                 HttpStatus.BAD_REQUEST.value(),
                 "Bad Request",
