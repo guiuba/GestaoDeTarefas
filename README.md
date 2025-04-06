@@ -15,7 +15,7 @@ Ela foi desenvolvida com as seguintes tecnologias:
 
 Para acessar o projeto, copie e cole o seguinte endereço em uma nova aba do seu navegador:
 ```
-🔗 https://gestaodetarefas.up.railway.app/swagger-ui/index.html
+https://gestaodetarefas.up.railway.app/swagger-ui/index.html
 ```
 
 A partir dessa URL, você será redirecionado à **documentação interativa Swagger**, onde poderá testar os endpoints disponíveis da API diretamente pelo navegador:
