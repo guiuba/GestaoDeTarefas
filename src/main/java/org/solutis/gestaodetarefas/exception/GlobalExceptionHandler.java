@@ -29,8 +29,19 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler({TarefaNaoEncontradaException.class, TarefaJaExistenteException.class})
+    @ExceptionHandler(TarefaNaoEncontradaException.class)
     public ResponseEntity<ErroDTO> handleTarefaNaoEncontrada(TarefaNaoEncontradaException ex, HttpServletRequest request) {
+        ErroDTO erro = new ErroDTO(
+                HttpStatus.BAD_REQUEST.value(),
+                "Bad Request",
+                ex.getMessage(),
+                request.getRequestURI()
+        );
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(erro);
+    }
+
+    @ExceptionHandler(TarefaJaExistenteException.class)
+    public ResponseEntity<ErroDTO> handleTarefaJaExistente(TarefaJaExistenteException ex, HttpServletRequest request) {
         ErroDTO erro = new ErroDTO(
                 HttpStatus.BAD_REQUEST.value(),
                 "Bad Request",
