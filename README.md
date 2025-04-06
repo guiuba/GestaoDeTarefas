@@ -14,18 +14,18 @@ Ela foi desenvolvida com as seguintes tecnologias:
   ## 🌐 Acesso ao Projeto
 
 Para acessar o projeto, copie e cole o seguinte endereço em uma nova aba do seu navegador:
-
+```
 🔗 [https://gestaodetarefas.up.railway.app/swagger-ui/index.html](https://gestaodetarefas.up.railway.app/swagger-ui/index.html)
+```
 
-A partir dessa URL, você será redirecionado à **documentação interativa Swagger**, onde poderá testar os endpoints disponíveis da API diretamente pelo navegador.
+A partir dessa URL, você será redirecionado à **documentação interativa Swagger**, onde poderá testar os endpoints disponíveis da API diretamente pelo navegador:
+
+![image](https://github.com/user-attachments/assets/db152eb7-3ec2-4f94-85fe-fa57a9958715)
 
 
 
-## Instruções de Utilização
-Para executar o projeto:
-1. Clone este repositório em seu PC.
-2. Abra o projeto na IDE de sua preferência.
-3. Utilize o [Postman](https://www.postman.com) para acessar os endpoints e interagir com o programa.
+
+
 
 ## Descrição
 A API permite aos usuários realizar as seguintes operações:
