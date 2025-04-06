@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @Component
 //@ResponseStatus(code = HttpStatus.BAD_REQUEST, reason = "Tarefa não encontrada!")
 //@Data
-public class TarefaNaoEncontradaException extends RuntimeException{
+public class TarefaNaoEncontradaException extends RuntimeException {
+
+    public TarefaNaoEncontradaException(String mensagem) {
+        super(mensagem);
+    }
+
     public TarefaNaoEncontradaException() {
-        super("Tarefa não encontrada!");
+        this("Tarefa não encontrada!");
     }
 }

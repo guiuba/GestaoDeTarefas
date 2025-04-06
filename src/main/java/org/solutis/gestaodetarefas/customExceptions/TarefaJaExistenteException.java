@@ -9,8 +9,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 //@ResponseStatus(code = HttpStatus.BAD_REQUEST, reason = "Tarefa já existente!")
 //@Data
 public class TarefaJaExistenteException extends RuntimeException{
+    public TarefaJaExistenteException(String message) {
+        super(message);
+    }
 
     public TarefaJaExistenteException() {
+
         super("Tarefa já existente!");
     }
 }
