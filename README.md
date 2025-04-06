@@ -15,44 +15,35 @@ Ela foi desenvolvida com as seguintes tecnologias:
 
 Para acessar o projeto, copie e cole o seguinte endereço em uma nova aba do seu navegador:
 ```
-🔗 [https://gestaodetarefas.up.railway.app/swagger-ui/index.html](https://gestaodetarefas.up.railway.app/swagger-ui/index.html)
+🔗 https://gestaodetarefas.up.railway.app/swagger-ui/index.html
 ```
 
 A partir dessa URL, você será redirecionado à **documentação interativa Swagger**, onde poderá testar os endpoints disponíveis da API diretamente pelo navegador:
 
 ![image](https://github.com/user-attachments/assets/db152eb7-3ec2-4f94-85fe-fa57a9958715)
 
+## 📖 Descrição
 
-
-
-
-
-## Descrição
 A API permite aos usuários realizar as seguintes operações:
-- Cadastrar uma nova tarefa.
-- Listar todas as tarefas.
-- Buscar uma tarefa por ID.
-- Atualizar o status de uma tarefa.
-- Excluir uma tarefa.
+
+- ✅ **Cadastrar uma nova tarefa**
+- 📋 **Listar todas as tarefas**
+- 🔍 **Buscar uma tarefa por ID**
+- 🔄 **Atualizar o status de uma tarefa**
+- ❌ **Excluir uma tarefa**
 
 ---
 
-## Modelo de Dados
-`Tarefa` é a entidade principal do sistema e possui os seguintes campos:
-- **id**: Identificador único da tarefa (autogerado).
-- **título**: Título da tarefa (obrigatório).
-- **descrição**: Descrição da tarefa (opcional).
-- **status**: Status da tarefa (ex: "Pendente", "Em andamento", "Concluída").
+## 🗂️ Modelo de Dados
 
----
+**Tarefa** é a entidade principal do sistema e possui os seguintes campos:
 
-## Endpoints da API
-A API expõe os seguintes endpoints:
-
-### Criar uma nova tarefa
-**POST** `localhost:8080/api/tarefas`
-
-**Exemplo de entrada JSON:**
+- 🆔 `id`: Identificador único da tarefa *(autogerado)*  
+- 📝 `titulo`: Título da tarefa *(obrigatório)*  
+- 📄 `descricao`: Descrição da tarefa *(opcional)*  
+- 🚦 `status`: Status da tarefa  
+ 
+**Exemplo de entrada no formato JSON para a criação de uma nova tarefa:**
 ```json
 {
   "titulo": "Garagem",
@@ -80,14 +71,6 @@ A API expõe os seguintes endpoints:
 ### Excluir uma tarefa
 **DELETE** `localhost:8080/api/tarefas/{id}`
 
----
-
-## Tecnologias Utilizadas
-- **Spring Boot**
-- **Spring Web**: Criação da API RESTful.
-- **Spring Data JPA**: Persistência de dados no banco de dados relacional H2.
-- **JUnit**: Testes unitários.
-- **H2 Database**: Banco de dados em memória para simplificação.
 
 ---
 
