@@ -22,7 +22,7 @@ public class TarefaService {
     public  ResponseEntity<TarefaDto> criarTarefa(Tarefa tarefa) {
         Optional<Tarefa> tarefaExistente = tarefaRepo.findByTituloEqualsIgnoreCase(tarefa.getTitulo());
         if(tarefaExistente.isPresent()) {
-            throw new TarefaJaExistenteException();
+            throw new TarefaJaExistenteException("Tarefa já existente!");
         }
         Tarefa novaTarefa = tarefaRepo.save(tarefa);
         TarefaDto tarefaDto = new TarefaDto(novaTarefa);
@@ -40,7 +40,7 @@ public class TarefaService {
             TarefaDto tarefaDto = new TarefaDto(tarefa.get());
             return ResponseEntity.ok(tarefaDto);
         } else {
-            throw new TarefaNaoEncontradaException();
+            throw new TarefaNaoEncontradaException("Tarefa com ID " + id + " não encontrada!");
         }
     }
 
@@ -53,7 +53,7 @@ public class TarefaService {
             TarefaDto tarefaDto = new TarefaDto(tarefaAtualizada);
             return ResponseEntity.ok(tarefaDto);
         } else {
-            throw new TarefaNaoEncontradaException();
+            throw new TarefaNaoEncontradaException("Tarefa com ID " + id + " não encontrada!");
         }
     }
 
@@ -64,7 +64,7 @@ public class TarefaService {
             tarefaRepo.delete(tarefa.get());
             return ResponseEntity.ok(String.format("Tarefa \"%s\" excluída com sucesso!", titulo));
         } else {
-            throw new TarefaNaoEncontradaException();
+            throw new TarefaNaoEncontradaException("Tarefa com ID " + id + " não encontrada!");
         }
     }
 }
