@@ -1,7 +1,25 @@
-# Desafio de Projeto Java Spring: API de Gestão de Tarefas
+# 📝 API de Gestão de Tarefas
 
-## Introdução
-Esta é uma API RESTful simples em Spring Boot para a gestão de tarefas (To-Do).
+## 📌 Introdução
+
+Olá! Esta é uma **API RESTful** para a gestão de tarefas do tipo *To-Do*.
+
+Ela foi desenvolvida com as seguintes tecnologias:
+
+- ☕ **Java 17**
+- 🌱 **Spring Boot 3**
+- 📄 **Documentação Swagger**
+- ☁️ **Deploy em nuvem via plataforma Railway**
+
+  ## 🌐 Acesso ao Projeto
+
+Para acessar o projeto, copie e cole o seguinte endereço em uma nova aba do seu navegador:
+
+🔗 [https://gestaodetarefas.up.railway.app/swagger-ui/index.html](https://gestaodetarefas.up.railway.app/swagger-ui/index.html)
+
+A partir dessa URL, você será redirecionado à **documentação interativa Swagger**, onde poderá testar os endpoints disponíveis da API diretamente pelo navegador.
+
+
 
 ## Instruções de Utilização
 Para executar o projeto:
