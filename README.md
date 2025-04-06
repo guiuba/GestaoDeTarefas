@@ -51,35 +51,6 @@ A API permite aos usuários realizar as seguintes operações:
   "status": "Pendente"
 }
 ```
-
-### Retornar todas as tarefas
-**GET** `localhost:8080/api/tarefas`
-
-### Buscar uma tarefa por ID
-**GET** `localhost:8080/api/tarefas/{id}`
-
-### Atualizar o status de uma tarefa existente
-**PUT** `localhost:8080/api/tarefas/{id}`
-
-**Exemplo de entrada JSON:**
-```json
-{
-  "status": "Pendente"
-}
-```
-
-### Excluir uma tarefa
-**DELETE** `localhost:8080/api/tarefas/{id}`
-
-
----
-
-## Testes
-1. **JUnit** para testar os métodos do serviço `TarefaService` e os endpoints da API.
-2. Testes cobrindo cada operação (criação, listagem, atualização, exclusão).
-
----
-
 ## Boas Práticas Seguidas
 - **Clean Code**: Código organizado, legível e modular.
 - **Testes**: Todos os cenários possíveis são testados.
@@ -87,5 +58,5 @@ A API permite aos usuários realizar as seguintes operações:
 
 ---
 
-## Obrigado!
+## Obrigado pela visita!
 
