@@ -71,7 +71,7 @@ public class TarefaController {
     @Operation(summary = "Deleta uma tarefa pelo id", description = "Deleta uma tarefa pelo id, através do id informado",
             responses = {
             @ApiResponse(responseCode = "200", description = "Tarefa encontrada"),
-            @ApiResponse(responseCode = "400", description = "Tarefa não encontrada",
+            @ApiResponse(responseCode = "404", description = "Tarefa não encontrada",
                     content = @Content(schema = @Schema(implementation = ErroDTO.class)))
     })
     @DeleteMapping("/{id}")
